@@ -1,6 +1,6 @@
 import React from 'react';
-import {FlatList, Text} from 'react-native';
-import {useSelector} from "react-redux";
+import { FlatList } from 'react-native';
+import { useSelector } from "react-redux";
 
 import ProductItem from "../../components/ProductItem";
 
@@ -20,7 +20,12 @@ const ProductOverviewScreen = ({navigation}) => {
                     image={itemData.item.image}
                     title={itemData.item.title}
                     price={itemData.item.price}
-                    onViewDetail={()=>{}}
+                    onViewDetail={()=>{
+                        navigation.navigate('ProductDetailScreen', {
+                            productId: itemData.item.id,
+                            productTitle: itemData.item.title
+                        })
+                    }}
                     onAddToCart={()=>{}}
                 />
             }
