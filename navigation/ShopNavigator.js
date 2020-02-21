@@ -19,8 +19,12 @@ const AppNavigation = () => {
                 },
                 headerTintColor: '#fff',
                 headerTitleStyle: {
-                    fontWeight: 'bold'
+                    fontWeight: 'bold',
+                    fontFamily: 'open-sans-bold'
                 },
+                headerBackTitleStyle: {
+                    fontFamily: 'open-sans-bold'
+                }
             }}
             >
                 <Stack.Screen name="ProductOverviewScreen" component={ProductOverviewScreen}/>
