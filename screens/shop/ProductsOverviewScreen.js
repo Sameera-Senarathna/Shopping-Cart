@@ -1,9 +1,10 @@
 import React from 'react';
-import { FlatList } from 'react-native';
-import { useSelector, useDispatch } from "react-redux";
+import {FlatList, Button} from 'react-native';
+import {useSelector, useDispatch} from "react-redux";
 
 import ProductItem from "../../components/ProductItem";
 import * as cartAction from '../../store/actions/cart';
+import HeaderButton from "../../components/HeaderButton";
 
 
 const ProductOverviewScreen = ({navigation}) => {
@@ -12,24 +13,31 @@ const ProductOverviewScreen = ({navigation}) => {
     const dispatch = useDispatch();
 
     //Set Navigation Header
-    navigation.setOptions({title: 'All Products'});
+    navigation.setOptions(
+        {
+            title: 'All Products',
+            headerRight: () => (
+                <HeaderButton openCart={()=>{navigation.navigate('CartScreen')}}/>
+            ),
+        }
+    );
 
     return (
         <FlatList
             data={products}
             keyExtractor={item => item.id}
-            renderItem={ itemData =>
+            renderItem={itemData =>
                 <ProductItem
                     image={itemData.item.image}
                     title={itemData.item.title}
                     price={itemData.item.price}
-                    onViewDetail={()=>{
+                    onViewDetail={() => {
                         navigation.navigate('ProductDetailScreen', {
                             productId: itemData.item.id,
                             productTitle: itemData.item.title
                         })
                     }}
-                    onAddToCart={()=>{
+                    onAddToCart={() => {
                         dispatch(cartAction.addToCart(itemData.item))
                     }}
                 />
