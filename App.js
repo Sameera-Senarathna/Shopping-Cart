@@ -12,10 +12,14 @@ import AppNavigation from "./navigation/ShopNavigator";
 
 import ProductReducer from "./store/reducers/products";
 import CardReducer from "./store/reducers/cart";
+import OrderReducer from "./store/reducers/order";
+
 
 const rootReducer = combineReducers({
     products: ProductReducer,
-    cart: CardReducer
+    cart: CardReducer,
+    orders: OrderReducer
+
 });
 
 const store = createStore(rootReducer, composeWithDevTools());
