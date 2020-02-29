@@ -16,9 +16,12 @@ const ProductOverviewScreen = ({navigation}) => {
     navigation.setOptions(
         {
             title: 'All Products',
-            headerRight: () => (
-                <HeaderButton openCart={()=>{navigation.navigate('CartScreen')}}/>
+            headerLeft: () => (
+                <HeaderButton iconName="md-menu" onPress={()=>{navigation.toggleDrawer()}}/>
             ),
+            headerRight: () => (
+                <HeaderButton iconName="md-cart" onPress={()=>{navigation.navigate('CartScreen')}}/>
+            )
         }
     );
 
