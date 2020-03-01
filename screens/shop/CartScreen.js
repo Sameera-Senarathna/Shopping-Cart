@@ -45,6 +45,7 @@ const CartScreen = (props) => {
                 data={cartItems}
                 renderItem={itemData =>
                     <CartItem
+                        deletable
                         quantity={itemData.item.quantity}
                         title={itemData.item.productTitle}
                         amount={itemData.item.sum}

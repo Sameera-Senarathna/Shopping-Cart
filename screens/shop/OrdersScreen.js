@@ -1,7 +1,9 @@
 import React from "react";
 import {View, Text, StyleSheet, FlatList} from 'react-native';
 import { useSelector } from "react-redux";
+
 import HeaderButton from "../../components/HeaderButton";
+import OrderItem from "../../components/OrderItem";
 
 const OrderScreen = ({navigation}) => {
 
@@ -18,7 +20,7 @@ const OrderScreen = ({navigation}) => {
         <FlatList
             keyExtractor={item => item.id}
             data={order}
-            renderItem={itemData =>  <Text>{itemData.item.totalAmount}</Text>} />
+            renderItem={itemData =>  <OrderItem amount={itemData.item.totalAmount} date={itemData.item.readableDate} items={itemData.item.items}/>} />
     );
 }
 
