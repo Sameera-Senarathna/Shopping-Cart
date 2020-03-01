@@ -10,10 +10,12 @@ import CartScreen from "../screens/shop/CartScreen";
 import OrderScreen from "../screens/shop/OrdersScreen";
 
 import Colors from '../constants/Colors';
+import UserProductScreen from "../screens/user/UserProducts";
 
 
 const Stack_1 = createStackNavigator();
 const Stack_2 = createStackNavigator();
+const Stack_3 = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const ProductNavigator = () => {
@@ -60,6 +62,27 @@ const OrderNavigation = () => {
     );
 };
 
+const UserOrderNavigator = () => {
+    return (
+        <Stack_3.Navigator screenOptions={{
+            headerStyle: {
+                backgroundColor: Colors.primary
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                fontWeight: 'bold',
+                fontFamily: 'open-sans-bold'
+            },
+            headerBackTitleStyle: {
+                fontFamily: 'open-sans-bold'
+            }
+        }}
+        >
+            <Stack_2.Screen name="UserProduct" component={UserProductScreen}/>
+        </Stack_3.Navigator>
+    );
+};
+
 const AppNavigation = () => {
     return (
         <NavigationContainer>
@@ -69,6 +92,9 @@ const AppNavigation = () => {
                     ) }} />
                 <Drawer.Screen name="Your Orders" component={OrderNavigation} options={{ drawerIcon: () => (
                         <Ionicons name="md-cart" size={23} />
+                    ) }} />
+                <Drawer.Screen name="User Product" component={UserOrderNavigator} options={{ drawerIcon: () => (
+                        <Ionicons name="md-create" size={23} />
                     ) }} />
             </Drawer.Navigator>
         </NavigationContainer>
