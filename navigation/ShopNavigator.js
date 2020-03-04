@@ -11,6 +11,7 @@ import OrderScreen from "../screens/shop/OrdersScreen";
 
 import Colors from '../constants/Colors';
 import UserProductScreen from "../screens/user/UserProducts";
+import EditProductScreen from "../screens/user/EditProductScreen";
 
 
 const Stack_1 = createStackNavigator();
@@ -79,6 +80,7 @@ const UserOrderNavigator = () => {
         }}
         >
             <Stack_2.Screen name="UserProduct" component={UserProductScreen}/>
+            <Stack_2.Screen name="EditProduct" component={EditProductScreen}/>
         </Stack_3.Navigator>
     );
 };
